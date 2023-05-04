@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230427 17:03:07.520" rpa="true" schemaversion="3">
+<suite id="s1" name="Consumer" source="e:\RPA Level_3\consumer.robot">
+<test id="s1-t1" name="Consume traffic data work items" line="9">
+<kw name="For Each Input Work Item" library="RPA.Robocorp.WorkItems">
+<arg>Process traffic data</arg>
+<doc>Run a keyword or function for each work item in the input queue.</doc>
+<kw name="Process traffic data">
+<kw name="Get Work Item Payload" library="RPA.Robocorp.WorkItems">
+<var>${payload}</var>
+<doc>Get the full JSON payload for a work item.</doc>
+<msg timestamp="20230427 17:03:11.288" level="INFO">${payload} = {}</msg>
+<status status="PASS" starttime="20230427 17:03:11.288" endtime="20230427 17:03:11.296"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${traffic_data}</var>
+<arg>${payload}[${WORK_ITEM_NAME}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230427 17:03:11.304" level="FAIL">Dictionary '${payload}' has no key 'traffic_data'.</msg>
+<status status="FAIL" starttime="20230427 17:03:11.296" endtime="20230427 17:03:11.304"/>
+</kw>
+<status status="FAIL" starttime="20230427 17:03:11.280" endtime="20230427 17:03:11.312"/>
+</kw>
+<status status="FAIL" starttime="20230427 17:03:11.280" endtime="20230427 17:03:11.312"/>
+</kw>
+<status status="FAIL" starttime="20230427 17:03:11.272" endtime="20230427 17:03:11.320">Dictionary '${payload}' has no key 'traffic_data'.</status>
+</test>
+<doc>Inhuman Insurance, Inc. Artificial Intelligence System robot.
+Consumes traffic data work items.</doc>
+<status status="FAIL" starttime="20230427 17:03:07.544" endtime="20230427 17:03:11.320"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Consumer">Consumer</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230427 17:03:11.272" level="WARN">No input work items file found: None</msg>
+<msg timestamp="20230427 17:03:11.320" level="ERROR">Releasing item '0' with FAILED state and exception: {'type': 'APPLICATION', 'code': None, 'message': "Dictionary '${payload}' has no key 'traffic_data'."}</msg>
+</errors>
+</robot>
